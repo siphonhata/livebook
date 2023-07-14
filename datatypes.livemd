@@ -1,0 +1,21 @@
+# Sipho livebook
+
+## Data Types
+
+```elixir
+# All data types in Elixir are immutable(constants).
+```
+
+## Atom
+
+```elixir
+# A constant whose value is its own name
+# Atoms are great for sending messages and representing constants
+:nike
+
+{:error, reason} = {:error, "File not found"}
+
+# Above is a practical example of how an atom
+# can be used to return or show error message 
+# an application may come across in runtime.
+```
