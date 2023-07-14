@@ -19,3 +19,9 @@
 # can be used to return or show error message 
 # an application may come across in runtime.
 ```
+
+## Strings
+
+```elixir
+# Strings are just array of characters
+```
