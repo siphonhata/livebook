@@ -24,4 +24,9 @@
 
 ```elixir
 # Strings are just array of characters
+
+name = "Sipho"
+surname = "Ndlalane"
+fullName = name <> " " <> surname
+IO.puts("Full Name is #{fullName}")
 ```
