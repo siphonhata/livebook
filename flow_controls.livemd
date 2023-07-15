@@ -1,0 +1,75 @@
+# Sipho Livebook
+
+## Flow Control Mechanisms
+
+## Case
+
+```elixir
+list = [5, 2, 3]
+
+option = 2
+
+case Enum.at(list, option) do
+  1 -> "1 is a match"
+  2 -> "2 is a match"
+  3 -> "3 is a match"
+  _ -> "Catch all"
+end
+```
+
+```elixir
+defmodule Post do
+  defstruct(
+    id: nil,
+    title: "",
+    description: "",
+    author: ""
+  )
+end
+```
+
+```elixir
+post1 = %Post{id: 2, title: "Title 1", description: "Description 1", author: "Small"}
+```
+
+```elixir
+case post1 do
+  %{author: "Govender"} -> "Got a post from Govender"
+  %{author: "Anil"} -> "Got a post from Anil"
+  _ -> "Got a post from #{post1.author}"
+end
+```
+
+## Cond (Conditions)
+
+```elixir
+# Cond in Elixir 
+cond do
+  post1.author == "Octallium" -> "Editing a post from Octallium"
+  post1.author == "Anil" -> "Editing a post from Anil"
+  post1.author == "Govender" -> "Editing a post from Govender"
+  # Works a default
+  true -> "Catch all " <> "Post edited by #{post1.author}"
+end
+```
+
+```elixir
+cond do
+  hd(list) == 1 -> "Got a 1"
+  hd(list) == 2 -> "Got a 2"
+  hd(list) == 3 -> "Got a 3"
+  # Works a default
+  true -> "Head is #{hd(list)}"
+end
+```
+
+## If/ Else
+
+```elixir
+# If Else works the same as cond in Elixir
+if hd(list) == 5 do
+  "If works"
+else
+  "Else this will work"
+end
+```

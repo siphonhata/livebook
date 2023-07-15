@@ -27,6 +27,7 @@
 # written between double qouted strings
 
 name = "Sipho"
+name
 ```
 
 ```elixir
@@ -38,14 +39,183 @@ fullName = name <> " " <> surname
 ```
 
 ```elixir
+# We can use the ? symbol to get a raw representation(ascii code) of each single letter or number
+
+rawVal = ?A
+```
+
+```elixir
+# pattern match using strings
+# variable name holds 'Sipho' as a value
+<<head, rest::binary>> = name
+# Above code returns an ascii code for the first character found in name
+# Printing head will result value 83 as an ascii for 'S'
+head
+```
+
+```elixir
+<<"Si", rest::binary>> = name
+rest
+```
+
+```elixir
+# Results first n characters from name
+n = 3
+<<head::binary-size(n), rest::binary>> = name
+head
+```
+
+```elixir
 # Strings in Elixir also support interpolation, 
 # which allows you to place some value in a middle
 # of a string by using #{}
 
 "Hello my full name is #{fullName}"
 
+# Elixir String support Escape characters that can be used to format the outputs.
+```
+
+```elixir
 # Also use the is_binary/1 built function to check if a given value is type string or not.
 # is_binary/1 will return a true if a given value is type string and a false if its not.
 
-# Elixir String support Escape characters that can be used to format the outputs.
+is_binary(fullName)
+```
+
+## Character List
+
+```elixir
+# Characters in Elixir are a list of integers that are printed as a sequence of 
+# characters delimited by single quotes
+chars = 'Octallium'
+chars
+```
+
+```elixir
+# In characters we use the ++ symbol to combine/concatenate two different characters
+'Elixir by ' ++ chars
+```
+
+## Processes
+
+```elixir
+# Code in elixir runs in processes and they are identified by process ID
+# They also a data type in Elixir
+
+pid = self()
+pid
+```
+
+## Lists
+
+```elixir
+# Lists in Elixir are Linked lists because linked lists are recursive 
+
+list = ["a", "b", "c"]
+list
+```
+
+```elixir
+# To acess elements in list we use a Enum function 
+
+Enum.at(list, 2)
+```
+
+```elixir
+# Pattern matching with lists
+
+[first, second, third] = list
+
+# Above we pattern matching the new list with the original list by matching values from the same index
+```
+
+```elixir
+# Ignoring indexes when pattern matching we use the underscore
+
+[_, _, third] = list
+```
+
+```elixir
+# hd gives the first element in a list and tl gives the last
+firstV = hd(list)
+lastV = tl(list)
+```
+
+```elixir
+[h | t] = list
+# Separate the first element from the other elements from the list
+```
+
+## Tuples
+
+```elixir
+# Created by using curly brackets
+# All data in tuples are continuosly saved into a memory
+
+{a, b, c} = {1, 2, 3}
+b
+```
+
+```elixir
+{:reply, msg, state} = {:reply, "Octallium found", ["Octallium", "Louis", "Chiko"]}
+msg
+```
+
+## Keyword List
+
+```elixir
+# A list that contain a key value pair
+# Always remember to put a space between the colon and value
+
+data = [a: 1, b: 2]
+```
+
+```elixir
+# Fetching values from a given key
+
+data[:a]
+```
+
+## Maps
+
+```elixir
+# Maps are like dictionaries
+# When making a map always have the % sign before the curly brackets
+
+my_map = %{a: 1, b: 2, c: 3}
+```
+
+```elixir
+# Pattern matching maps
+
+%{a: first, b: second, c: third} = my_map
+third
+# Can also pattern match only that one value you need to use.
+```
+
+```elixir
+# If the keys are not of type atom we use the arrow notations. 
+map2 = %{"a" => 1, "b" => 2, "c" => 3}
+
+# Map have different functions that can be used to manipulate maps in Elixir like updating
+```
+
+```elixir
+map2 = %{map2 | "c" => 5}
+```
+
+## Struct
+
+```elixir
+defmodule User do
+  # defstruct :username, :email, :age
+  ## Used when you want to initialise default values
+  defstruct username: "", email: "", age: nil
+end
+```
+
+```elixir
+%User{age: 20, username: "Sipho", email: "sipho@gnail.com"}
+
+# Structs behave the same as maps therefore updating values works the same as maps
 ```
