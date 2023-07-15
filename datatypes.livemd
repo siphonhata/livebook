@@ -23,10 +23,29 @@
 ## Strings
 
 ```elixir
-# Strings are just array of characters
+# Strings in Elixir are a sequence of unicode characters,
+# written between double qouted strings
 
 name = "Sipho"
+```
+
+```elixir
+# In Elixir we <> to concatenate two strings.
+
 surname = "Ndlalane"
+
 fullName = name <> " " <> surname
-IO.puts("Full Name is #{fullName}")
+```
+
+```elixir
+# Strings in Elixir also support interpolation, 
+# which allows you to place some value in a middle
+# of a string by using #{}
+
+"Hello my full name is #{fullName}"
+
+# Also use the is_binary/1 built function to check if a given value is type string or not.
+# is_binary/1 will return a true if a given value is type string and a false if its not.
+
+# Elixir String support Escape characters that can be used to format the outputs.
 ```
