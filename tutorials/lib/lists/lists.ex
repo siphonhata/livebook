@@ -33,6 +33,12 @@ defmodule Tutorials.Lists do
     end
 
 
+    # MAP
 
-   
+    @spec map([any()], (any() -> any()), [any()]) :: [any()]
+    def map(element, func, acc \\ [] )
+    def map([], _, acc), do: acc |> reverse()
+    def map([h | t], func, acc), do: map(t, func, [func.(h) | acc])
+
+    
 end
