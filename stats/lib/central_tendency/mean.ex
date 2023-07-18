@@ -11,7 +11,7 @@ defmodule Stats.CentralTendency.Mean do
     |> calc_population_mean()
   end
 
-
+h
 
   def calc_population_mean({false, _}), do: Errors.invalid_data_type()
   def calc_population_mean({true, nums}) do
